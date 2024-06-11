@@ -4,7 +4,7 @@ function Footer() {
 
     return (
         <div className={Style.footer}>
-            <h4>@2024 build by <a href="https://marwanarbib.wordpress.com/">marwan rbib</a></h4>
+            <h4>@2024 Create by <a href="https://marwanarbib.wordpress.com/">marwan rbib</a></h4>
         </div>
     )
 }
