@@ -1,0 +1,38 @@
+.navbar{
+    background-color: #f8f9fa;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.homeLink{
+    display: flex;
+    align-items: center;
+}
+.homeLink a{
+    height: 100%;
+}
+.socialLink{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-right: 10px;
+}
+.socialLink a{
+    height: 30px;
+}
+.logo, .socialLogo{
+    height: 100%;
+    width: auto;
+}
+@media screen and (max-width: 768px){
+    .navbar{
+        padding: 0.5rem 0.5rem;
+    }
+    .socialLink{
+        gap: 0.5rem;
+    }
+    
+}
