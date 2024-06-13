@@ -1,18 +1,51 @@
 import Style from './Navbar.module.css';
 import facebook from '../../assets/facebook.png';
 import instagram from '../../assets/instagram.png';
+import phone from '../../assets/phone.png';
+import React, { useEffect, useState } from 'react';
 
 function Navbar() {
+    const [info, setInfo] = useState({});
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch("https://script.google.com/macros/s/AKfycbywk2ZhkrPgrsd2aKnortLX2s0OOUK4ZjQIUgUlCYcxUmKs1yc6Ui-t4CzqAgVTYv5Y/exec");
+                const json = await res.json();
+
+                if (json?.data && Array.isArray(json.data.slides) && Array.isArray(json.data.infos)) {
+                    const foundProduct = json.data.infos[0];
+                    if (foundProduct) {
+                        setInfo(foundProduct);
+                    } else {
+                        console.error('Product not found in infos array');
+                    }
+                } else {
+                    console.error('Unexpected data format', json);
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const formatPhoneNumber = (phoneNumber) => {
+        if (!phoneNumber) return "";
+        return `+1${phoneNumber}`;
+    };
+    
     return (
         <div className={Style.navbar}>
             <div className={Style.homeLink}>
-                <a href=""><img className={Style.logo} src="https://img.freepik.com/vecteurs-libre/symbole-anarchie-design-plat-dessine-main_23-2149244760.jpg?w=740&t=st=1718104181~exp=1718104781~hmac=9a85d4c5eed8e71f6486fe8c0974c54b300cbd8973e94225413aa02b7216a0d8" alt="" /></a>
-                <h2>prandname</h2>
+                <a href="/"><img className={Style.logo} src={info.brandImage} /></a>
+                <h2>{info.brandName}</h2>
             </div>
             <div className={Style.socialLink}>
-                <a href=""><img className={Style.socialLogo} src={facebook} alt="" /></a>
-                <a href=""><img  className={Style.socialLogo} src={instagram} alt="" /></a>
+                <a href={info.facebook || "#"}><img className={Style.socialLogo} src={facebook} alt="Facebook" /></a>
+                <a href={info.instagram || "#"}><img className={Style.socialLogo} src={instagram} alt="Instagram" /></a>
+                <a href={`tel:${formatPhoneNumber(info.phone)}`}><img className={Style.socialLogo} src={phone} alt="phone" /></a>
             </div>
         </div>
     )

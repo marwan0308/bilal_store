@@ -14,7 +14,9 @@ function CardProduct(props) {
 
     return (
         <div onMouseEnter={changePicture} onMouseLeave={changePictureBack} className={style.CardProduct}>
-            <img src={image} alt={props.productName} />
+            <div className={style.imgContainer}>
+                <img src={image} alt={props.productName} />
+            </div>
             <div className={style.productInfo}>
                 <div className={style.productName}>{props.productName}</div>
                 <div className={style.productPrice}>{props.price} DH</div>
