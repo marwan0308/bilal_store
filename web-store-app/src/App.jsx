@@ -5,7 +5,6 @@ import Footer from './Components/Footer/Footer'
 import Home from './Pages/Home/Home'
 import Product from './Pages/Product/Product'
 import './App.css'
-import { Analytics } from "@vercel/analytics/react"
 
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
         <Route path='/product/:id' Component={Product} />
       </Routes>
       <Footer />
-      <Analytics />
     </div>
   )
 }
