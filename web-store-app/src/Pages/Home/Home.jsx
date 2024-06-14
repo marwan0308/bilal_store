@@ -14,7 +14,7 @@ function Home() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("https://script.google.com/macros/s/AKfycbzvLOAgWSMUmV72ydr_4nv1DZXdRbOrAnZL2ZaHDW0-K9TDQnIjUa4cyE_FYSoUHXzE/exec");
+                const res = await fetch("https://script.google.com/macros/s/AKfycbwl5aVJVlpajrS4e1DhHYzK5GtG8-l7PCmLCHrbEnUnRhY93wf_q-ZBvH2lCZOhDiek6A/exec");
                 const json = await res.json();
 
                 if (json.data && Array.isArray(json.data.slides) && Array.isArray(json.data.products)) {
