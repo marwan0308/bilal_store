@@ -10,7 +10,7 @@ function Navbar() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("https://script.google.com/macros/s/AKfycbywk2ZhkrPgrsd2aKnortLX2s0OOUK4ZjQIUgUlCYcxUmKs1yc6Ui-t4CzqAgVTYv5Y/exec");
+                const res = await fetch("https://script.google.com/macros/s/AKfycbwl5aVJVlpajrS4e1DhHYzK5GtG8-l7PCmLCHrbEnUnRhY93wf_q-ZBvH2lCZOhDiek6A/exec");
                 const json = await res.json();
 
                 if (json?.data && Array.isArray(json.data.slides) && Array.isArray(json.data.infos)) {
