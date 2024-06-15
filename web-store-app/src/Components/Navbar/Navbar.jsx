@@ -33,7 +33,7 @@ function Navbar() {
 
     const formatPhoneNumber = (phoneNumber) => {
         if (!phoneNumber) return "";
-        return `+1${phoneNumber}`;
+        return `+${phoneNumber}`;
     };
     
     return (
