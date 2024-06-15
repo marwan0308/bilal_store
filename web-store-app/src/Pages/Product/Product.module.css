@@ -57,6 +57,7 @@
 .productSize, .productColor {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
     margin-left: 10px;
 }
 .productSize div{
